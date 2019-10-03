@@ -1,5 +1,6 @@
 package com.lambdaschool.part02ConstructorInjection;
 
+// business rules
 public class MyApplication
 {
     private MessageService msgSrv;
@@ -9,9 +10,10 @@ public class MyApplication
         this.msgSrv = msgSrv;
     }
 
-    public void send(String msg, String receiveAddress)
+    public void send(String addr, String msg)
     {
-        msg = msg + "\n *** FOR YOUR EYES ONLY ***";
-        msgSrv.sendMessage(msg, receiveAddress);
+        // rules of messaging
+        msg = msg + "\n*** FOR YOUR EYES ONLY ***";
+        msgSrv.sendMessage(addr, msg);
     }
 }

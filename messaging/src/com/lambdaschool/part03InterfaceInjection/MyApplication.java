@@ -9,12 +9,14 @@ public class MyApplication implements Processor
     {
         this.msgSrv = msgSrv;
     }
-    
-    public void sendMessage(String msg, String receiveAddress)
+
+    @Override
+    public void sendMessage(String msg,
+                            String address)
     {
-        // rules of messaging
-        msg = msg + "\n *** FOR YOUR EYES ONLY ***";
-        msgSrv.sendMessage(msg, receiveAddress);
+        // rules
+        msg = msg + "\n*** FOR YOUR EYES ONLY ***";
+        msgSrv.sendMessage(address, msg);
     }
 
     @Override

@@ -2,41 +2,28 @@ package com.lambdaschool.part03InterfaceInjection;
 
 public class Main
 {
-
     public static void main(String[] args)
     {
-        String myMsg = "Come Here--I want to see you.";
-        String myAddress = "Mr. Watson";
-        String myText = "Watson";
-
         MessageServiceInjector injector;
         Processor app;
 
-        System.out.println();
-        System.out.println();
-        System.out.println();
-
-        // send Lambda Message
+        // send message
         injector = new LambdaMessageInjector();
         app = injector.getProcess();
-        app.sendMessage(myMsg, myAddress);
+        app.sendMessage("Hello", "JRMMBA");
 
-        System.out.println();
-        System.out.println();
-        System.out.println();
+        System.out.println("\n\n\n");
 
-        // send Lambda Texting
-        injector = new LambdaTextingServiceInjector();
+        // send message
+        injector = new EmailMessageInjector();
         app = injector.getProcess();
-        app.sendMessage(myMsg, myText);
+        app.sendMessage("Hello", "john@lambdaschool.com");
 
-        System.out.println();
-        System.out.println();
-        System.out.println();
+        System.out.println("\n\n\n");
 
-        // send Lambda Teletype
-        injector = new LambdaTeletypeServiceInjector();
+        // send message
+        injector = new TextMessageInjector();
         app = injector.getProcess();
-        app.sendMessage(myMsg, myAddress);
+        app.sendMessage("Good Bye", "555-555-5555");
     }
 }
